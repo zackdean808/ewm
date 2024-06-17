@@ -30,8 +30,6 @@ resource "aws_route_table" "ewm_route_table" {
   }
 }
 
-
-
 # Associate the route table with the subnet
 resource "aws_route_table_association" "ewm_route_table_association" {
   	subnet_id      = aws_subnet.ewm_subnet.id
@@ -65,7 +63,6 @@ resource "aws_security_group" "ewm_sg" {
     		cidr_blocks = ["0.0.0.0/0"]
   	}
 }
-
 
 # Output the VPC ID and Subnet ID for use in other files
 output "vpc_id" {
