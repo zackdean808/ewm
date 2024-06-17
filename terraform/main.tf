@@ -31,3 +31,51 @@ resource "aws_route_table" "ewm_route_table" {
 }
 
 
+
+# Associate the route table with the subnet
+resource "aws_route_table_association" "ewm_route_table_association" {
+  	subnet_id      = aws_subnet.ewm_subnet.id
+  	route_table_id = aws_route_table.ewm_.id
+}
+
+# Create a security group
+resource "aws_security_group" "ewm_sg" {
+  	vpc_id = aws_vpc.ewm_vpc.id
+
+  	# Allow SSH access from anywhere
+  	ingress {
+    		from_port   = 22
+    		to_port     = 22
+    		protocol    = "tcp"
+    		cidr_blocks = ["0.0.0.0/0"]
+  	}
+
+  	# Allow all traffic within the VPC
+  	ingress {
+    		from_port   = 0
+    		to_port     = 65535
+    		protocol    = "-1"
+    		cidr_blocks = [aws_vpc.ewm_vpc.cidr_block]
+  	}
+
+  	egress {
+    		from_port   = 0
+    		to_port     = 0
+    		protocol    = "-1"
+    		cidr_blocks = ["0.0.0.0/0"]
+  	}
+}
+
+
+# Output the VPC ID and Subnet ID for use in other files
+output "vpc_id" {
+  	value = aws_vpc.ewm_vpc.id
+}
+
+output "subnet_id" {
+  	value = aws_subnet.ewm_subnet.id
+}
+
+output "security_group_id" {
+  	value = aws_security_group.ewm_sg.id
+}
