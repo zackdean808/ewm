@@ -1,10 +1,21 @@
-# ewm
-Tech Test for EWM
-
 ## Description
 This is the EWM take home test, given to me by Steve Clarke. 
 It's a three part test that is broken down into three steps. 
 
+## Installation 
+Terraform
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
+AWS CLI 
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+
+## How to run:
+1. 
+2. 
+3. 
+
+## Tasks:
 ### Task 1 - Terraform / Ansible Server ###
 
 - Use Terraform to create afree tier EC2 instance and deploy Ansible and Terraform.
