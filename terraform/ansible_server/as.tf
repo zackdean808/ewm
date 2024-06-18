@@ -17,6 +17,7 @@ resource "aws_instance" "ansible_server" {
   instance_type   = "t2.micro"
   subnet_id       = data.terraform_remote_state.shared.outputs.subnet_id
   security_groups = [data.terraform_remote_state.shared.outputs.security_group_id]
+  key_name	  = "ewm-key-pair"	
 
   tags = {
     Name = "ansible_server"

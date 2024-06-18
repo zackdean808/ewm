@@ -17,6 +17,7 @@ resource "aws_instance" "node_host" {
   instance_type   = "t2.micro"
   subnet_id       = data.terraform_remote_state.shared.outputs.subnet_id
   security_groups = [data.terraform_remote_state.shared.outputs.security_group_id]
+  key_pair	  = "ewm-key-pair"
 
   tags = {
     Name = "node_host"
