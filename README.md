@@ -12,21 +12,25 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 ## How to run:
 1. Initialize all the terraform
-  a. ```
+
+a.
+```
 	cd shared
 	terraform init
 	terraform apply
-      ``` 
-  b. ```
+``` 
+b. 
+```
 	cd ../node_host
 	terraform init
 	terraform apply
-     ```
-  c. ```
+```
+c. 
+```
 	cd ../ansible_host
 	terraform init
 	terraform apply
-     ```
+```
 2. 
 3. 
 
