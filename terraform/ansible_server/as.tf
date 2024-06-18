@@ -7,7 +7,7 @@ data "terraform_remote_state" "shared" {
   backend = "local"
 
   config = {
-    path = "./terraform.tfstate"
+    path = "../terraform.tfstate"
   }
 }
 
