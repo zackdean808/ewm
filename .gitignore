@@ -35,3 +35,6 @@ terraform.rc
 *.hcl
 # Ignore key pairs 
 *.pem
+# Ignore state files 
+*backup
+
