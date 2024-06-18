@@ -37,13 +37,13 @@ c.
 ## Tasks:
 ### Task 1 - Terraform / Ansible Server ###
 
-- Use Terraform to create afree tier EC2 instance and deploy Ansible and Terraform.
+[] Use Terraform to create afree tier EC2 instance and deploy Ansible and Terraform.
 
 ### Task 2 - Observability Server ###
 
-- Using the Terraform / Ansible server create afree tier EC2 instance and deploy Ansible and Terraform.
-- Deploy an instance of [Prometheus](https://prometheus.io/download/)
-- Deploy an instance of [OSS Grafana](https://grafana.com/grafana/download?pg=oss-graf&plcmt=hero-btn-1)
+[] Using the Terraform / Ansible server create afree tier EC2 instance and deploy Ansible and Terraform.
+[] Deploy an instance of [Prometheus](https://prometheus.io/download/)
+[] Deploy an instance of [OSS Grafana](https://grafana.com/grafana/download?pg=oss-graf&plcmt=hero-btn-1)
 
 ### Task 3 - Documentation ###
 
