@@ -16,7 +16,7 @@ resource "aws_subnet" "ewm_subent" {
 }
 
 # create ig 
-resouce "aws_internet_gateway" "ewm_igw" {
+resource "aws_internet_gateway" "ewm_igw" {
 	vpc_id = aws_vpc.ewm_vpc.id
 }
 
