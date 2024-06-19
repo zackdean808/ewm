@@ -79,14 +79,16 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
      with Ansible and Jinja since the configuration of prometheus.yml is pretty straight forward. I'd also like to implement a service file for
      prometheus so we can stop and start it quickly.
    - Still need to implementthe node exporter on the other node. This way I oculd agg all the incoming data and have one pane view of everything. Also see the TODO:
-     since these show additional functionality I would like to have but ran out of time. 
+     since these show additional functionality I would like to have but ran out of time. Other take aways in my design was that if I continued to scale I'd be sending the node_exporter data over the VPC.
+     This keeps it kind of simple and we'd only need one cert for the grafana front end. 
    - I think I spent about 6 hours total. I'm not sure, I had fun.
    - Not having centralized key managment or sso to quickly log into boxes. I had to copy keys around to avoid using passwords. This was probably the biggest time sync.
      Need to build a custom AMI wiht auth aready built in. Since my laptop was refreshedwith a new os I had to spend sometime configuring my env and finding missing packages.  
    - The keys are the worst part, they don't scale and now you're stuck with it. Also not configuing the sg's for 3000 right away borked thigs. Also I'd like to stick an nginx in front or have
      real certs for 443/3000 over ssl
    - More automation around the configuring of grafana.
-   - I tested by doing, run into issues and debug. 
+   - I tested by doing, run into issues and debug.
+   
 
 # Tasks:
 ### Task 1 - Terraform / Ansible Server ###
