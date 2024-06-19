@@ -108,7 +108,7 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 - [x] What problems you encountered and what you did to overcome / work around them.
 - [x] What technical debt you have added to your solution.
 - [x] What improvements / additional functionality could be added to the solution?
-- [x]How you tested your solutions.
+- [x] How you tested your solutions.
 
 
 # Validation / Testing 
