@@ -31,8 +31,20 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 	terraform init
 	terraform apply
 	```
-2. 
-3. 
+2. Create users on the ansible host and the node host so we can ssh from the ansilbe host to the node host to configure it
+- Generate the keys
+  	```
+	ssh-keygen -t ed25519 -C "node@ewm.test.com"
+	ssh-keygen -t ed25519 -C "ansible@ewm.test.com"
+   	```
+- Put the keys in the ```ansible/files```
+- Add the hosts to inventory, get the ips from the aws console
+  	TODO: Get these with script
+- Run the playbook
+  	```
+   	ansible-playbook -i inventory/production.yml roles/common/users.yml -u ec2-user -b
+   	```
+-  
 
 # Tasks:
 ### Task 1 - Terraform / Ansible Server ###
