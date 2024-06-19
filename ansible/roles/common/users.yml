@@ -2,22 +2,23 @@
 - hosts: all
   vars:
     users:
-      - "node"
       - "ansible"
+      - "node"
+    pubs:
+      - "ansible_ed25519.pub"
+      - "node_ed25519.pub"
   tasks:
     - name: "Create user accounts"
       user:
         name: "{{ item }}"
         groups: "wheel"
       with_items: "{{ users }}"
-    - name: "Add authorized keys"
+
+    - name: auth keys | ansible
       authorized_key:
-        user: "{{ item }}"
-        key: "{{ lookup('file', 'files/'+ item + '.pub') }}"
-      with_items: "{{ users }}"
-    - name: "Allow admin users to sudo without a password"
-      lineinfile:
-        dest: "/etc/sudoers" # path: in version 2.3
-        state: "present"
-        regexp: "^%admin"
-        line: "%admin ALL=(ALL) NOPASSWD: ALL"
+        user: "ansible"
+        key: "{{ lookup('file', '/home/z/github/ewm/ansible/files/ansible_ed25519.pub') }}"
+    - name: auth keys | node
+      authorized_key:
+        user: "node"
+        key: "{{ lookup('file', '/home/z/github/ewm/ansible/files/node_ed25519.pub') }}"
