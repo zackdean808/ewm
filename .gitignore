@@ -38,4 +38,4 @@ terraform.rc
 # Ignore state files 
 *backup
 # Ignore keys 
-*ed_25519*
+*ed25519*
