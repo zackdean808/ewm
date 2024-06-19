@@ -14,11 +14,19 @@
         groups: "wheel"
       with_items: "{{ users }}"
 
-    - name: auth keys | ansible
-      authorized_key:
-        user: "ansible"
-        key: "{{ lookup('file', '/home/z/github/ewm/ansible/files/ansible_ed25519.pub') }}"
-    - name: auth keys | node
-      authorized_key:
-        user: "node"
-        key: "{{ lookup('file', '/home/z/github/ewm/ansible/files/node_ed25519.pub') }}"
+    - name: create ssh dir 
+      file:
+        path: "/home/{{ item }}/.ssh/"
+        owner: "{{ item }}"
+        state: directory
+      with_items: "{{ users }}"
+
+    - name: copy public keys
+      copy:
+        src: "/home/z/github/ewm/ansible/files/{{ item.1 }}"
+        dest: "/home/{{ item.0 }}/.ssh/{{ item.1 }}"
+        remote_src: False
+      with_together:
+        - "{{ users }}"
+        - "{{ pubs }}"
+
