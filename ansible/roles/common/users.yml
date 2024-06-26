@@ -1,0 +1,45 @@
+---
+- hosts: all
+  vars:
+    users:
+      - "ansible"
+      - "node"
+    pubs:
+      - "ansible_ed25519.pub"
+      - "node_ed25519.pub"
+  tasks:
+    - name: "Create user accounts"
+      user:
+        name: "{{ item }}"
+        groups: "wheel"
+      with_items: "{{ users }}"
+
+    - name: create ssh dir 
+      file:
+        path: "/home/{{ item }}/.ssh/"
+        owner: "{{ item }}"
+        state: directory
+      with_items: "{{ users }}"
+
+    - name: copy public keys | ansible 
+      copy:
+        src: "/home/z/github/ewm/ansible/files/node_ed25519.pub"
+        dest: "/home/ansible/.ssh/"
+        remote_src: False
+
+    - name: copy public keys | node 
+      copy:
+        src: "/home/z/github/ewm/ansible/files/ansible_ed25519.pub"
+        dest: "/home/node/.ssh/"
+        remote_src: False
+
+    - name: copy private keys | ansible
+      copy:
+        src: "/home/z/github/ewm/keys/ansible_ed25519"
+        dest: "/home/ansible/.ssh/"
+    
+    - name: copy private keys | ansible
+      copy:
+        src: "/home/z/github/ewm/keys/node_ed25519"
+        dest: "/home/node/.ssh/"
+
