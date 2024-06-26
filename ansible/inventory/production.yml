@@ -1,0 +1,8 @@
+#prod inventory
+
+
+[ansible_servers]
+100.27.20.247
+
+[node_servers]
+54.147.129.248
