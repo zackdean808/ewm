@@ -48,6 +48,20 @@ resource "aws_security_group" "ewm_sg" {
     		protocol    = "tcp"
     		cidr_blocks = ["0.0.0.0/0"]
   	}
+	# Allow prom/grafana traffic
+	ingress {
+		from_port   = 3000
+		to_port     = 3000
+		protocol    = "tcp"
+		cidr_blocks = ["0.0.0.0/0"]
+	}
+
+	ingress {
+		from_port   = 9000
+		to_port     = 9000
+		protcol     = "tcp"
+		cidr_blocks = ["0.0.0.0/0"]
+	}
 
   	# Allow all traffic within the VPC
   	ingress {

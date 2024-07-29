@@ -12,7 +12,6 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 # How to run:
 1. Initialize all the terraform
-   TODO: Add 3000/9000 to the sgs 
 
 - Initalize the shared resorces 
 	```
